@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS treatmentService;
+DROP DATABASE IF EXISTS treatmentservice;
 DROP USER IF EXISTS `treatment_Service`@`%`;
-CREATE DATABASE IF NOT EXISTS treatmentService CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS treatmentservice CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE USER IF NOT EXISTS `treatment_Service`@`%` IDENTIFIED WITH mysql_native_password BY 'password';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, EXECUTE, CREATE VIEW, SHOW VIEW,
-CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON `treatmentService`.* TO `treatment_Service`@`%`;
+CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON `treatmentservice`.* TO `treatment_Service`@`%`;
 FLUSH PRIVILEGES;
 
