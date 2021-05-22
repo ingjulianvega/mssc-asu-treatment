@@ -20,6 +20,7 @@ public class TreatmentDto implements Serializable {
     private UUID visitId;
     private UUID medicineId;
     private int concentrationQuantity;
+    private UUID concentrationId;
     private UUID administrationMethodId;
     private int durationQuantity;
     private UUID durationId;
