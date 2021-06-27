@@ -11,7 +11,7 @@
 
 	<groupId>ingjulianvega.ximic</groupId>
 	<artifactId>mssc-asu-treatment</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>mssc-asu-treatment</name>
 	<description>ASU treatment microservice (tratamiento)</description>
 </project>

@@ -63,6 +63,7 @@ public class TreatmentServiceImpl implements TreatmentService {
                                         .visitId(treatment.getVisitId())
                                         .medicineId(treatment.getMedicineId())
                                         .concentrationQuantity(treatment.getConcentrationQuantity())
+                                        .concentrationId(treatment.getConcentrationId())
                                         .administrationMethodId(treatment.getAdministrationMethodId())
                                         .durationQuantity(treatment.getDurationQuantity())
                                         .durationId(treatment.getDurationId())
