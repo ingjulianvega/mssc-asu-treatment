@@ -12,6 +12,7 @@ import ingjulianvega.ximic.msscasutreatment.web.model.TreatmentList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -40,7 +41,14 @@ public class TreatmentServiceImpl implements TreatmentService {
         log.debug("getById()...");
         return treatmentMapper.treatmentEntityToTreatmentDto(
                 treatmentRepository.findById(id)
-                        .orElseThrow(() -> new TreatmentException(ErrorCodeMessages.TREATMENT_NOT_FOUND, "")));
+                        .orElseThrow(() -> TreatmentException
+                                .builder()
+                                .httpStatus(HttpStatus.BAD_REQUEST)
+                                .apiCode(ErrorCodeMessages.TREATMENT_NOT_FOUND_API_CODE)
+                                .error(ErrorCodeMessages.TREATMENT_NOT_FOUND_ERROR)
+                                .message(ErrorCodeMessages.TREATMENT_NOT_FOUND_MESSAGE)
+                                .solution(ErrorCodeMessages.TREATMENT_NOT_FOUND_SOLUTION)
+                                .build()));
     }
 
     @Override
@@ -75,7 +83,14 @@ public class TreatmentServiceImpl implements TreatmentService {
     public void updateById(UUID id, Treatment treatment) {
         log.debug("updateById...");
         TreatmentEntity treatmentEntity = treatmentRepository.findById(id)
-                .orElseThrow(() -> new TreatmentException(ErrorCodeMessages.TREATMENT_NOT_FOUND, ""));
+                .orElseThrow(() -> TreatmentException
+                        .builder()
+                        .httpStatus(HttpStatus.BAD_REQUEST)
+                        .apiCode(ErrorCodeMessages.TREATMENT_NOT_FOUND_API_CODE)
+                        .error(ErrorCodeMessages.TREATMENT_NOT_FOUND_ERROR)
+                        .message(ErrorCodeMessages.TREATMENT_NOT_FOUND_MESSAGE)
+                        .solution(ErrorCodeMessages.TREATMENT_NOT_FOUND_SOLUTION)
+                        .build());
 
         treatmentEntity.setVisitId(treatment.getVisitId());
         treatmentEntity.setMedicineId(treatment.getMedicineId());
